@@ -1,0 +1,19 @@
+.app-container {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+}
+
+.sidebar {
+  min-height: 800px;
+}
+
+.tags {
+  margin-right: 2px;
+}
+
+.postForm {
+  margin: 10px;
+}
