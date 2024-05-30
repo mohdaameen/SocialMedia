@@ -3,10 +3,10 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Sidebar from "./components/Sidebar";
-import { CreatePost } from "./components/CreatePost";
-import PostList from "./components/PostList";
+
 import { useState } from "react";
 import ListProvider from "./store/List-Post";
+import { Outlet } from "react-router-dom";
 function App() {
   const [selectedTab, SetselectedTab] = useState("Post");
   return (
@@ -18,11 +18,7 @@ function App() {
         ></Sidebar>
         <div className="content">
           <Header></Header>
-          {selectedTab == "Home" ? (
-            <PostList></PostList>
-          ) : (
-            <CreatePost></CreatePost>
-          )}
+          <Outlet></Outlet>
           <Footer></Footer>
         </div>
       </div>

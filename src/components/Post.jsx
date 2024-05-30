@@ -26,7 +26,7 @@ const Post = ({ post }) => {
           style={{ margin: "7px -10px" }}
           role="alert"
         >
-          {`Total number of reactions on your posts are ${post.reactions}`}
+          {`Total number of likes on your posts are ${post.reactions} people`}
         </div>
       </div>
     </div>

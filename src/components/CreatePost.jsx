@@ -17,13 +17,26 @@ export const CreatePost = () => {
     const Vbody = body.current.value;
     const Vreactions = reactions.current.value;
     const Vtags = tags.current.value.split(" ");
-    addPost(VuserID, Vtitle, Vbody, Vreactions, Vtags);
 
     userId.current.value = "";
     title.current.value = "";
     body.current.value = "";
     reactions.current.value = "";
     tags.current.value = "";
+
+    fetch("https://dummyjson.com/posts/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: Vtitle,
+        body: Vbody,
+        reactions: Vreactions,
+        userId: VuserID,
+        tags: Vtags,
+      }),
+    })
+      .then((res) => res.json())
+      .then((resOb) => addPost(resOb));
   };
   return (
     <form className="postForm" onSubmit={handleSubmit}>
